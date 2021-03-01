@@ -8,9 +8,8 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 from rest_framework_nested import routers
-from users import views
-
-
+from users import views as userviews
+from topics import views as topicviews
 
 from helpers.health_check_view import health_check
 
@@ -19,11 +18,11 @@ from helpers.health_check_view import health_check
 ###
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UsersViewSet, basename='Users')
+router.register(r'users', userviews.UsersViewSet, basename='Users')
+#router_topics = routers.DefaultRouter()
+router.register(r'topics', topicviews.TopicViewSet, basename='Topics')
 
-
-
-#router.register(r'topics', TopicsViewSet)
+# router.register(r'topics', TopicsViewSet)
 
 urlpatterns = [
     # Admin
@@ -34,7 +33,8 @@ urlpatterns = [
 
     # Applications
 
-    url(r'',include(router.urls)),
+    url(r'', include(router.urls)),
+    # url(r'', include(router_topics.urls))
 
     # url(r'^', include('accounts.urls')),
     # url(r"userview/", views.UserListAPI.as_view()),
@@ -42,4 +42,4 @@ urlpatterns = [
     # url(r'(?P<id>\d+)/userupdate/$', views.UserUpdateAPI.as_view())
     # url(r'userupdate/', views.UserUpdateAPI.as_view())
 
-    ]
+]
