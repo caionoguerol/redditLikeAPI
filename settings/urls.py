@@ -10,6 +10,7 @@ from rest_framework import routers
 from rest_framework_nested import routers
 from users import views as userviews
 from topics import views as topicviews
+from posts import views as postsviews
 
 from helpers.health_check_view import health_check
 
@@ -19,8 +20,8 @@ from helpers.health_check_view import health_check
 
 router = routers.DefaultRouter()
 router.register(r'users', userviews.UsersViewSet, basename='Users')
-#router_topics = routers.DefaultRouter()
 router.register(r'topics', topicviews.TopicViewSet, basename='Topics')
+router.register(r'posts', postsviews.PostViewSet, basename='Posts')
 
 # router.register(r'topics', TopicsViewSet)
 
