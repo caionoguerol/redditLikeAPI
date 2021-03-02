@@ -22,7 +22,7 @@ router = routers.DefaultRouter()
 router.register(r'users', userviews.UsersViewSet, basename='Users')
 router.register(r'topics', topicviews.TopicViewSet, basename='Topics')
 router.register(r'posts', postsviews.PostViewSet, basename='Posts')
-
+router.register('login', userviews.LoginViewSet, basename='login')
 # router.register(r'topics', TopicsViewSet)
 
 urlpatterns = [

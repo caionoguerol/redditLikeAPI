@@ -75,17 +75,17 @@ INSTALLED_APPS = [
     'rest_auth',
     'rest_auth.registration',
 
-    # Allauth
-    'allauth',
-    'allauth.account',
-
-    # Social Applications
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.google',
-
-    # Cors
-    'corsheaders',
+    # # Allauth
+    # 'allauth',
+    # 'allauth.account',
+    #
+    # # Social Applications
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.google',
+    #
+    # # Cors
+    # 'corsheaders',
 
     # Applications
     #'accounts',
@@ -178,7 +178,7 @@ REST_FRAMEWORK = {
        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-       # 'rest_framework.authentication.TokenAuthentication',
+       'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20
@@ -187,62 +187,62 @@ REST_FRAMEWORK = {
 ###
 # Authentication
 ###
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.UserProfile'
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+#
+# REST_AUTH_SERIALIZERS = {
+#     'TOKEN_SERIALIZER': 'accounts.api.v1.serializers.UserTokenSerializer',
+#     'PASSWORD_RESET_SERIALIZER': 'accounts.api.v1.serializers.PasswordResetSerializer',
+# }
 
-REST_AUTH_SERIALIZERS = {
-    'TOKEN_SERIALIZER': 'accounts.api.v1.serializers.UserTokenSerializer',
-    'PASSWORD_RESET_SERIALIZER': 'accounts.api.v1.serializers.PasswordResetSerializer',
-}
-
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_VERIFICATION = 'none'
-ACCOUNT_ADAPTER = os.environ.get('ACCOUNT_ADAPTER', 'allauth.account.adapter.DefaultAccountAdapter')
-SOCIALACCOUNT_EMAIL_VERIFICATION = os.environ.get('SOCIALACCOUNT_EMAIL_VERIFICATION', 'none')
-
-SOCIALACCOUNT_PROVIDERS = {
-    'facebook': {
-        'METHOD': 'oauth2',
-        'SCOPE': [
-            'email',
-            'public_profile',
-            'user_friends',
-            'user_birthday',
-        ],
-        'FIELDS': [
-            'id',
-            'email',
-            'name',
-            'first_name',
-            'last_name',
-            'verified',
-            'locale',
-            'timezone',
-            'link',
-            'gender',
-            'updated_time',
-            'location',
-            'birthday',
-        ],
-        'EXCHANGE_TOKEN': True,
-        'VERIFIED_EMAIL': False,
-        'VERSION': 'v2.8',
-    },
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        },
-    },
-}
+# ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_EMAIL_VERIFICATION = 'none'
+# ACCOUNT_ADAPTER = os.environ.get('ACCOUNT_ADAPTER', 'allauth.account.adapter.DefaultAccountAdapter')
+# SOCIALACCOUNT_EMAIL_VERIFICATION = os.environ.get('SOCIALACCOUNT_EMAIL_VERIFICATION', 'none')
+#
+# SOCIALACCOUNT_PROVIDERS = {
+#     'facebook': {
+#         'METHOD': 'oauth2',
+#         'SCOPE': [
+#             'email',
+#             'public_profile',
+#             'user_friends',
+#             'user_birthday',
+#         ],
+#         'FIELDS': [
+#             'id',
+#             'email',
+#             'name',
+#             'first_name',
+#             'last_name',
+#             'verified',
+#             'locale',
+#             'timezone',
+#             'link',
+#             'gender',
+#             'updated_time',
+#             'location',
+#             'birthday',
+#         ],
+#         'EXCHANGE_TOKEN': True,
+#         'VERIFIED_EMAIL': False,
+#         'VERSION': 'v2.8',
+#     },
+#     'google': {
+#         'SCOPE': [
+#             'profile',
+#             'email',
+#         ],
+#         'AUTH_PARAMS': {
+#             'access_type': 'online',
+#         },
+#     },
+# }
 
 ###
 # Change Password

@@ -5,7 +5,7 @@ Model helper
 # Libraries
 ###
 from django.db import models
-from users.models import User
+from users.models import UserProfile
 
 
 ###
@@ -17,7 +17,7 @@ class FieldsModel(models.Model):
         abstract = True
 
     title = models.CharField(max_length=15)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
 
 
 class TimestampModel(models.Model):
