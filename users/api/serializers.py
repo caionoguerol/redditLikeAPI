@@ -23,7 +23,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         # raise_errors_on_nested_writes('update', self, validated_data)
-        instance.username = validated_data['username'] 
+        instance.username = validated_data['username']
         instance.email = validated_data['email']
         instance.set_password(validated_data['password'])
         instance.save()
