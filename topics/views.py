@@ -13,4 +13,4 @@ class TopicViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.OwnerUpdate, IsAuthenticatedOrReadOnly)
 
     def perform_create(self, serializer):
-        serializer.save(user_profile=self.request.user)
+        serializer.save(author=self.request.user)
