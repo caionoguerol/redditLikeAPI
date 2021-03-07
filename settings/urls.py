@@ -22,9 +22,12 @@ from helpers.health_check_view import health_check
 router = routers.DefaultRouter()
 router.register(r'login', userviews.LoginViewSet, basename='login')
 router.register(r'users', userviews.UsersViewSet, basename='users')
-router.register(r'topics', topicviews.TopicViewSet)
+router.register(r'topics', topicviews.TopicViewSet, basename='topics')
+router.register(r'posts', topicviews.TopicViewSet, basename='posts')
+router.register(r'comments', commentviews.CommentsViewSet, basename='comments')
 
-topics_router = routers.NestedSimpleRouter(router, r'topics', lookup='url_name')
+
+topics_router = routers.NestedSimpleRouter(router, r'topics', lookup='topic')
 topics_router.register(r'posts', postsviews.PostViewSet, basename='topic')
 
 posts_router = routers.NestedSimpleRouter(topics_router, r'posts', lookup='post')

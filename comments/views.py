@@ -17,4 +17,4 @@ class CommentsViewSet(viewsets.ModelViewSet):
         return Comment.objects.filter(post=self.kwargs['post_pk'])
 
     def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+        serializer.save(author=self.request.user, post_id=self.kwargs['post_pk'])

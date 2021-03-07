@@ -11,6 +11,6 @@ class TopicViewSet(viewsets.ModelViewSet):
     serializer_class = TopicSerializer
     queryset = Topic.objects.all()
     permission_classes = (permissions.OwnerUpdate, IsAuthenticatedOrReadOnly)
-
+    lookup_field = 'url_name'
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
