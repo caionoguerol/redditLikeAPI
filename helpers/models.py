@@ -21,10 +21,6 @@ class FieldsModel(models.Model):
 
 
 class TimestampModel(models.Model):
-    '''
-        Extend this model if you wish to have automatically updated
-        created_at and updated_at fields.
-    '''
 
     class Meta:
         abstract = True

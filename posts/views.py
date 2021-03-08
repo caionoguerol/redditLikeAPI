@@ -13,7 +13,6 @@ from users.api import permissions
 class PostViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication,)
     serializer_class = PostSerializer
-    # queryset = Post.objects.all()
     permission_classes = (permissions.OwnerUpdate, IsAuthenticatedOrReadOnly)
 
     def get_queryset(self):

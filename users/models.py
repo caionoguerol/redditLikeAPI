@@ -2,8 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
-from django.utils.translation import ugettext_lazy as _
-from django.conf import settings
+
 
 
 class UserProfileManager(BaseUserManager):
@@ -39,13 +38,3 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
 
-    # username = models.CharField(max_length=15, unique=True, default = 'n/a')
-
-    # USERNAME_FIELD =
-    # REQUIRED_FIELDS = ['email', 'password']
-
-#     def __str__(self):
-#         return "{}".format(self.email)
-#
-# class UserProfile(models.Model):
-#     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')

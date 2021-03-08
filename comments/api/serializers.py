@@ -9,7 +9,6 @@ class CommentSerializer(serializers.ModelSerializer):
         extra_kwargs = {'author': {'read_only': True}, 'post': {'read_only': True}}
 
     def update(self, instance, validated_data):
-        # raise_errors_on_nested_writes('update', self, validated_data)
         instance.title = validated_data['title']
         instance.content = validated_data['content']
         instance.save()

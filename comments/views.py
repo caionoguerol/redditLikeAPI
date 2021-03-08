@@ -10,7 +10,6 @@ from users.api import permissions
 class CommentsViewSet(viewsets.ModelViewSet):
     authentication_classes = (TokenAuthentication, )
     serializer_class = CommentSerializer
-    # queryset = Comment.objects.all()
     permission_classes = (permissions.OwnerUpdate,IsAuthenticatedOrReadOnly)
 
     def get_queryset(self):
