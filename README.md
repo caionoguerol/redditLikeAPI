@@ -10,6 +10,8 @@
         source venv/bin/activate
 - Install the requirements `pip install -r requirements.txt`
 - Start the dockers `docker-compose up` with the database and the localstack
+- Makemigrations with `python manage.py makemigrations`
+- Migrate with `python manage.py migrate`
 - Run the server with `python manage.py runserver`
 
 
