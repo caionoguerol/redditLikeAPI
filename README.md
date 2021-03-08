@@ -20,12 +20,12 @@
 
 * */users/*
 
-- Allowed methods: GET, POST
+ Allowed methods: GET, POST
 
 * */users/{user_id}*
 
-- Allowed methods with authorization token: GET, PUT, DELETE
-- Allowed methods without autorization token: GET
+ Allowed methods with authorization token: GET, PUT, DELETE
+ Allowed methods without autorization token: GET
 
 
 * */login/*
