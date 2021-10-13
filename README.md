@@ -1,6 +1,3 @@
-# Jungle Devs - Backend Challenge #001
-
-
 
 ## Instructions to Run
 
